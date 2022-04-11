@@ -1,6 +1,8 @@
 # Protótipo
 
-TBC
+Link Prototype: https://www.figma.com/proto/465NcYeC8m5nuj1ZKiW0LC/UFTPR---Controle-Oximetro?node-id=1%3A45&scaling=scale-down&page-id=1%3A2&starting-point-node-id=1%3A45
+
+Link Projeto FIGMA: https://www.figma.com/file/465NcYeC8m5nuj1ZKiW0LC/UFTPR---Controle-Oximetro?node-id=1%3A2
 
 # Checklist
 
