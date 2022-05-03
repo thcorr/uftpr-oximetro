@@ -1,0 +1,33 @@
+<div class="container">
+
+  <h2>Nova Medida: {{this.measuredate}}</h2>
+
+  <form>
+
+      <div class="form-group">
+
+          <label for="nome">Nome</label><br>
+
+          <input type="text" name="nome" class = "form-control" ngModel>
+
+      </div>
+
+      <pre></pre>
+
+      <div class="form-group">
+
+          <label for="medida">medida</label><br>
+
+          <input type="text" name="medida" class = "form-control" ngModel>
+
+      </div>
+
+      <pre></pre>
+
+      <pre></pre>
+
+      <button class="btn btn-primary" (click)='submit()'>Enviar</button>
+
+  </form>
+
+</div>
