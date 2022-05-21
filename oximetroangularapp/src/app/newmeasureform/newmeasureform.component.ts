@@ -1,6 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
+import { Measure } from '../model/measure';
+import { NewMeasureService } from './newmeasureservice';
+import { Shared } from '../util/shared';
 
 @Component({
   selector: 'app-newmeasureform',
@@ -10,19 +14,49 @@ import { Router } from '@angular/router';
 export class NewmeasureformComponent implements OnInit {
 
   @Input() measuredate: string = "notvaliddate";
+  @ViewChild('form') form!: NgForm;
 
+  measure!: Measure;
+  measures?: Measure[];
 
-  constructor(private router: Router) {
+  isSubmitted!: boolean;
+  isShowMessage: boolean = false;
+  isSuccess!: boolean;
+  message!: string;
+
+  constructor(private router: Router, private newMeasureService: NewMeasureService) {
 
    }
 
   ngOnInit(): void {
+    Shared.initializeWebStorage();
+    this.measure = new Measure(" ", " ");
+    this.measures = this.newMeasureService.getMeasures();
   }
 
   submit(){
     console.log("Form Submitted !");
-    console.log(this.measuredate);
+
     this.router.navigate(['/history', true]);
+
+    this.isSubmitted = true;
+    this.newMeasureService.save(this.measure);
+
+    this.isShowMessage = true;
+    this.isSuccess = true;
+    this.message = 'Cadastro realizado com sucesso!';
+    this.form.reset();
+    this.measure = new Measure('', '');
+    this.measures = this.newMeasureService.getMeasures();
+
+    var now = new Date();
+    console.log(now.toUTCString());
+    console.log("Dados cadastrados ate o momento:");
+    for (let m of this.measures) {
+      console.log("Nome" + m.nome + " Medida: " + m.medida + " Data: " + m.dataatual);
+
+  }
+
   }
 
 }

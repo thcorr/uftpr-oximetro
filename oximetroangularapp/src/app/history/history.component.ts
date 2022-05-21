@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
+import { Measure } from '../model/measure';
+import { NewMeasureService } from '../newmeasureform/newmeasureservice';
+import { Shared } from '../util/shared';
+
 @Component({
   selector: 'app-history',
   templateUrl: './history.component.html',
@@ -9,15 +13,16 @@ import { ActivatedRoute } from '@angular/router';
 export class HistoryComponent implements OnInit {
 
 
-  constructor(private router:ActivatedRoute) {
+  measures?: Measure[];
+
+  constructor(private router:ActivatedRoute, private newMeasureService: NewMeasureService) {
 
 
   }
 
   ngOnInit(): void {
-
-    console.log(this.router.snapshot.paramMap.get('newlyadded'));
-    console.log(this.isNewlyAdded());
+    Shared.initializeWebStorage();
+    this.measures = this.newMeasureService.getMeasures();
   }
 
   isNewlyAdded(): boolean {

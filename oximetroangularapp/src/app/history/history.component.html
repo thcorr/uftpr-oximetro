@@ -1,9 +1,36 @@
 <div *ngIf="isNewlyAdded()">
-  <h5 class="red-text" color=red;>Entrada criada com sucesso!</h5>
+  <h5 class="green-text" color=green;>Entrada criada com sucesso!</h5>
 
 </div>
-<p>
-    Tabela com historicos cadastrados sera colocada aqui
+<h5>Medidas cadastradas</h5>
 
-</p>
+  <table class="highlight" *ngIf="measures && measures!.length > 0">
+    <thead>
+      <tr>
+        <th>Data</th>
+        <th>Nome</th>
+        <th>Medida</th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let m of measures">
+        <td>{{ m.dataatual }}</td>
+        <td>{{ m.nome }}</td>
+        <td>{{ m.medida }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="!measures || measures!.length == 0">
+    <div class="row">
+      <div class="center-align">
+        <i class="col s12 material-icons large">mood_bad</i>
+        <span class="col s12 flow-text"
+          >Ainda não temos medidas cadastradas!</span
+        >
+      </div>
+    </div>
+  </div>
 

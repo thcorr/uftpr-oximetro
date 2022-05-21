@@ -2,31 +2,56 @@
 
   <h2>Nova Medida: {{this.measuredate}}</h2>
 
-  <form>
+  <form #form="ngForm" (submit)="submit()">
 
       <div class="form-group">
 
+          <input
+            id="nome"
+            name="nome"
+            type="text"
+            class = "validate"
+            [(ngModel)]="this.measure.nome"
+            pattern="^(\s?[A-ZÀ-Ú][a-zà-ú]*)+(\s[a-zà-ú]*)?(\s[A-ZÀ-Ú][a-zà-ú]*)+"
+            #nome="ngModel"
+            required
+          />
           <label for="nome">Nome</label><br>
 
-          <input type="text" name="nome" class = "form-control" ngModel>
-
+          <div class="red-text" [hidden]="nome.valid || nome.untouched">
+            Por favor, informe o seu nome completo.
+          </div>
       </div>
 
       <pre></pre>
 
       <div class="form-group">
 
-          <label for="medida">medida</label><br>
+          <input
+          id="medida"
+          name="medida"
+          type="text"
+          class = "validate"
+          [(ngModel)]="this.measure.medida"
+          pattern="^[1-9]$|^[1-9][0-9]$|^(100)$"
+          #medida="ngModel"
+          required>
 
-          <input type="text" name="medida" class = "form-control" ngModel>
 
+          <label for="medida">Medida do dia (Entre 0-100)</label><br>
+          <div
+          class="red-text"
+          [hidden]="medida.valid || medida.untouched"
+        >
+          Por favor, digite um numero entre 0-100.
+        </div>
       </div>
 
       <pre></pre>
 
       <pre></pre>
 
-      <button class="btn btn-primary" (click)='submit()'>Enviar</button>
+      <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Enviar</button>
 
   </form>
 
