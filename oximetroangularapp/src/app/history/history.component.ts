@@ -21,8 +21,26 @@ export class HistoryComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
     Shared.initializeWebStorage();
-    this.measures = this.newMeasureService.getMeasures();
+    let tempArray = new Array();
+    this.newMeasureService.getMeasuresViaApi()
+    .then((ms : Measure[]) => {
+      ms.forEach(function(m) {
+        tempArray.push(m);
+    });
+
+    console.log(tempArray);
+
+    this.measures = tempArray;
+
+    })
+    .catch((e) => {
+      //erro ao pegar do json-server
+      console.log("Erro no get!");
+    });
+
+
   }
 
   isNewlyAdded(): boolean {

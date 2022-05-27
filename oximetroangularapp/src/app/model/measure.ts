@@ -3,6 +3,7 @@ export class Measure {
   nome: string;
   medida: string;
   dataatual: string;
+  id: number;
 
   constructor(nome: string, medida:string){
     this.nome = nome;
@@ -14,6 +15,7 @@ export class Measure {
     let yyyy = today.getFullYear();
 
     this.dataatual =  dd + '/' + mm + '/' + yyyy;
+    this.id = Math.round(Math.random() * 1000);
   }
 
 }

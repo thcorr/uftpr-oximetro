@@ -1,0 +1,4 @@
+{
+  "/medidas/:n": "/medidas?nome=:n",
+  "/medidas": "/medidas"
+}

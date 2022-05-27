@@ -7,6 +7,7 @@
   <table class="highlight" *ngIf="measures && measures!.length > 0">
     <thead>
       <tr>
+        <th>ID</th>
         <th>Data</th>
         <th>Nome</th>
         <th>Medida</th>
@@ -16,6 +17,7 @@
 
     <tbody>
       <tr *ngFor="let m of measures">
+        <td>{{ m.id }}</td>
         <td>{{ m.dataatual }}</td>
         <td>{{ m.nome }}</td>
         <td>{{ m.medida }}</td>

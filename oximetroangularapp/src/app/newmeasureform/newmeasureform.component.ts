@@ -41,6 +41,13 @@ export class NewmeasureformComponent implements OnInit {
 
     this.isSubmitted = true;
     this.newMeasureService.save(this.measure);
+    console.log('non api save');
+
+
+    this.newMeasureService.saveViaApi(this.measure)
+    .then(()=> {console.log('save promise via API success')})
+    .catch((e)=>{console.log('save promise via API fail')})
+    .finally(() => {console.log('save finally via API aqui')});
 
     this.isShowMessage = true;
     this.isSuccess = true;
