@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Measure } from '../model/measure';
 import { NewMeasureService } from '../newmeasureform/newmeasureservice';
 import { Shared } from '../util/shared';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-history',
@@ -14,9 +15,17 @@ export class HistoryComponent implements OnInit {
 
 
   measures?: Measure[];
+  testDataAtividade11 = false;
+  subscription!: Subscription;
 
   constructor(private router:ActivatedRoute, private newMeasureService: NewMeasureService) {
 
+
+    this.subscription = newMeasureService.asObservable().subscribe((data) => {
+      this.testDataAtividade11 = data;
+      console.log('observer - teste - Atividade11');
+      console.log(this.testDataAtividade11);
+    });
 
   }
 

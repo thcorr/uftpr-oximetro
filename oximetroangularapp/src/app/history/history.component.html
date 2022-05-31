@@ -19,7 +19,7 @@
       <tr *ngFor="let m of measures">
         <td>{{ m.id }}</td>
         <td>{{ m.dataatual }}</td>
-        <td>{{ m.nome }}</td>
+        <td>{{ m.nome | uppercase }}</td>
         <td>{{ m.medida }}</td>
       </tr>
     </tbody>

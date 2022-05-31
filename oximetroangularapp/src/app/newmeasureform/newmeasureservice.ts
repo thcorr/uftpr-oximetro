@@ -3,11 +3,15 @@ import { Injectable } from '@angular/core';
 import { Measure } from './../model/measure';
 import { WebStorageUtil } from 'src/app/util/web-storage-util';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable, Observer, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class NewMeasureService {
+
+  private measureSource = new Subject<boolean>();
+
   URL = 'http://localhost:3000/medidas';
 
   httpOptions = {
@@ -49,4 +53,11 @@ export class NewMeasureService {
         this.URL)
       .toPromise();
   }
+
+
+  asObservable(): Observable<boolean> {
+    return this.measureSource;
+
+  }
+
 }
