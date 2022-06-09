@@ -47,6 +47,18 @@
       "medida": "88",
       "dataatual": "27/05/2022",
       "id": 20
+    },
+    {
+      "nome": "Thomas C",
+      "medida": "78",
+      "dataatual": "31/05/2022",
+      "id": 927
+    },
+    {
+      "nome": "Thomas Bbb",
+      "medida": "100",
+      "dataatual": "31/05/2022",
+      "id": 405
     }
   ]
 }

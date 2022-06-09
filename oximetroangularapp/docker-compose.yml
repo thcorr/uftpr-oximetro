@@ -1,0 +1,17 @@
+version: "3.3"
+services:
+  angular-service:
+    image: thocorr/oximetroapp:1
+    build: .
+    ports:
+      - "4200:80"
+  json-server:
+    image: codfish/json-server
+    command: npm run dev
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./dbb.js:/app/db.js:delegated
+      - ./routes.json:/app/routes.json:delegated
+    environment:
+      PORT: 3000
