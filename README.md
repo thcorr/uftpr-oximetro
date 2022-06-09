@@ -23,5 +23,5 @@ Link Projeto FIGMA: https://www.figma.com/file/465NcYeC8m5nuj1ZKiW0LC/UFTPR---Co
 - [x] Apresentar uma lista de dados com a diretiva estrutural ngFor.
 - [x] Usar a diretiva ngIf
 - [x] Formatar a apresentação de dados com Pipes.
-- [ ] Build e deploy da aplicação.
+- [x] Build e deploy da aplicação: http://18.212.23.3:4200/.
 
