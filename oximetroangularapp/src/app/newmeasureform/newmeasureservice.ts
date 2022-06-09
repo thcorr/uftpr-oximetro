@@ -12,7 +12,7 @@ export class NewMeasureService {
 
   private measureSource = new Subject<boolean>();
 
-  URL = 'http://localhost:3000/medidas';
+  URL = 'http://18.212.23.3:3000/medidas';
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
